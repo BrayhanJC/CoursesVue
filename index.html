@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platzi Courses</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div v-bind:class="'main'">
+        <div v-bind:class="'div_input'">
+          <img v-bind:src="image" v-bind:alt="placeholderCourseName" />
+          <h1 v-bind:class="'h1'">{{title}}</h1>
+          <input
+            type="text"
+            v-bind:placeholder="placeholderCourseName"
+            v-bind:class="'input'"
+            name="courseName"
+            v-model="nameCourse"
+          />
+          <input
+            type="number"
+            v-bind:placeholder="placeholderHour"
+            v-bind:class="'input'"
+            name="courseHour"
+            v-model="timeCourse"
+          />
+          <button v-bind:class="'button'" v-on:click="addCourse">
+            Guardar
+          </button>
+        </div>
+
+        <div v-bind:class="'ul_course'" v-if="courses.length > 0">
+          <ul v-bind:class="'ul'">
+            <li v-for="item in courses">
+              <div v-bind:class="'div_course'" v-if="courses">
+                <span v-bind:class="'span_li'"
+                  >Descripción: {{item.name }}</span
+                ><br>
+                <span v-bind:class="'span_li'"
+                  >Horas: {{item.time}}</span
+                >
+              </div>
+            </li>
+            <li>
+                <div v-bind:class="'div_total'">
+                    <span>Total Tiempo: {{totalTime}}</span>
+                </div>
+            </li>
+          </ul>
+        </div>
+
+
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
